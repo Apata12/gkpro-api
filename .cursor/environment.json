@@ -1,0 +1,17 @@
+{
+  "name": "gkpro-api",
+  "install": "npm install",
+  "terminals": [
+    {
+      "name": "api-dev-server",
+      "command": "npm run dev",
+      "description": "Local dev server exposing the api/ serverless functions (e.g. POST /api/chat) at http://localhost:3000."
+    }
+  ],
+  "ports": [
+    {
+      "name": "api",
+      "port": 3000
+    }
+  ]
+}
