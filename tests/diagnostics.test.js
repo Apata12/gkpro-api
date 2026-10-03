@@ -17,3 +17,11 @@ test('Known internal failures are classified without raw errors', () => {
   diagnosticFailure('quota_ip',new Error('quota_unavailable'),value=>line=value);
   assert.equal(JSON.parse(line).code,'quota_unavailable');
 });
+
+test('Apple signing and transport errors are classified without logging messages', () => {
+  for (const [message,reason] of [['secretOrPrivateKey must be an asymmetric key when using ES256','apple_signing_key_invalid'],['secretOrPrivateKey is not valid key material','apple_signing_key_invalid'],['fetch failed','apple_network_failed'],['Unexpected response body format','apple_response_format_invalid']]) {
+    let line; diagnosticFailure('apple_subscription_status',new Error(message),value=>line=value);
+    assert.equal(JSON.parse(line).reason,reason);
+    assert.equal(line.includes(message),false);
+  }
+});
