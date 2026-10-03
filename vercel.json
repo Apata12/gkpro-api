@@ -1,3 +1,13 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "functions": {
+    "api/chat.js": {
+      "maxDuration": 45,
+      "includeFiles": "certs/**"
+    },
+    "api/integrity.js": {
+      "maxDuration": 30,
+      "includeFiles": "certs/**"
+    }
+  }
 }

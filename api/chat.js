@@ -1,21 +1,18 @@
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+import { makeHandler } from "../lib/handler.js";
+import { makeVerifier } from "../lib/verify.js";
+import { makeQuota } from "../lib/quota.js";
 
-  try {
-    const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
-      },
-      body: JSON.stringify(req.body)
-    });
+import { makeIntegrity } from "../lib/integrity.js";
 
-    const data = await openaiRes.json();
-    return res.status(openaiRes.status).json(data);
-  } catch (err) {
-    return res.status(500).json({ error: err.message });
+let handler;
+export default async function chat(req,res) {
+  if (!handler) {
+    try {
+      handler=makeHandler({verify:makeVerifier(),quota:makeQuota(),integrity:makeIntegrity().verify,apiKey:process.env.OPENAI_API_KEY});
+    } catch {
+      res.setHeader("Cache-Control","no-store");
+      return res.status(503).json({error:{code:"service_unavailable"}});
+    }
   }
+  return handler(req,res);
 }
