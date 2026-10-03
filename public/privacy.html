@@ -1,158 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy — GKPro</title>
-  <style>
-    :root {
-      --bg: #0b0f14;
-      --card: #10161e;
-      --text: #f4f7f5;
-      --muted: #9aa8a0;
-      --accent: #00ff87;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(165deg, #0b0f14, #10241c 55%, #0b0f14);
-      color: var(--text);
-      line-height: 1.65;
-    }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
-    .card {
-      background: rgba(16, 22, 30, 0.94);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 28px 24px;
-    }
-    h1 { margin: 0 0 8px; font-size: 1.85rem; }
-    h2 { margin-top: 28px; font-size: 1.15rem; color: var(--accent); }
-    .meta { color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; }
-    a { color: var(--accent); }
-    .lang { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
-    .lang a {
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(0, 255, 135, 0.12);
-      border: 1px solid rgba(0, 255, 135, 0.35);
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-    hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 40px 0; }
-    ul { padding-left: 1.2rem; }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <div class="lang">
-        <a href="#en">English</a>
-        <a href="#tr">Türkçe</a>
-      </div>
-
-      <section id="en">
-        <h1>Privacy Policy</h1>
-        <p class="meta">
-          <strong>GKPro</strong> — goalkeeper training<br />
-          Last updated: September 23, 2026<br />
-          Developer: Burak<br />
-          Contact: <a href="mailto:burak782@icloud.com">burak782@icloud.com</a>
-        </p>
-        <p>
-          This policy explains how the GKPro iOS app handles information.
-          GKPro is a sports training app for goalkeeper drills, reaction timing, and optional coaching text.
-          It does not provide medical advice, diagnosis, or treatment.
-        </p>
-
-        <h2>1. No account</h2>
-        <p>GKPro does not ask you to create an account. We do not collect your name, email, or phone number inside the app.</p>
-
-        <h2>2. Camera and microphone stay on the device</h2>
-        <p>
-          The stance camera uses Apple Vision on your iPhone. Video frames are processed on the device and are not uploaded.
-          The reflex trainer can use the microphone and speech recognition so you can say start or stop.
-          Those audio buffers are used to detect the command. We do not store recordings on a server.
-        </p>
-
-        <h2>3. Training data stored on your iPhone</h2>
-        <p>Height, age group, reaction times, workout streak, and match notes are stored on the device with SwiftData. They are not sent to our server. A daily AI credit counter and the onboarding flag are stored in UserDefaults on the device.</p>
-
-        <h2>4. AI coach requests</h2>
-        <p>
-          If you use GKPro Elite coach chat, the question you type is sent to
-          <a href="https://gkpro-api.vercel.app/api/chat">https://gkpro-api.vercel.app/api/chat</a>.
-          That service forwards the text to a language model so it can write a training reply.
-          The app does not contain the model API key. Camera images are not included in this request.
-          Do not type passwords, health records, or other sensitive personal data into the coach.
-        </p>
-
-        <h2>5. Purchases</h2>
-        <p>Optional GKPro Elite subscriptions are processed by Apple. We do not receive your payment card number. Apple provides us with whether the subscription is active.</p>
-
-        <h2>6. Tracking and ads</h2>
-        <p>GKPro does not use advertising, IDFA, or cross-app tracking. The AI coach request is not an ad network.</p>
-
-        <h2>7. Children</h2>
-        <p>The app can be used by young goalkeepers. We do not ask for a name or contact details. A parent should decide whether a child may use the camera, microphone, or AI coach.</p>
-
-        <h2>8. Contact</h2>
-        <p>Privacy questions: <a href="mailto:burak782@icloud.com">burak782@icloud.com</a></p>
-      </section>
-
-      <hr />
-
-      <section id="tr">
-        <h1>Gizlilik Politikası</h1>
-        <p class="meta">
-          <strong>GKPro</strong> — kaleci antrenmanı<br />
-          Son güncelleme: 23 Eylül 2026<br />
-          Geliştirici: Burak<br />
-          İletişim: <a href="mailto:burak782@icloud.com">burak782@icloud.com</a>
-        </p>
-        <p>
-          Bu metin, GKPro iOS uygulamasının bilgileri nasıl işlediğini anlatır.
-          GKPro; kaleci drill’leri, reaksiyon süresi ve isteğe bağlı koç metni için bir spor antrenman uygulamasıdır.
-          Tıbbi tavsiye, teşhis veya tedavi sunmaz.
-        </p>
-
-        <h2>1. Hesap yok</h2>
-        <p>GKPro hesap açtırmaz. Uygulama içinde ad, e-posta veya telefon numarası istemez.</p>
-
-        <h2>2. Kamera ve mikrofon cihazda kalır</h2>
-        <p>
-          Duruş kamerası Apple Vision ile iPhone üzerinde çalışır. Görüntü kareleri cihazda işlenir ve yüklenmez.
-          Refleks antrenmanı, başlat veya durdur demeniz için mikrofon ve konuşma tanıma kullanabilir.
-          Ses, komutu anlamak için kullanılır. Kayıtları bir sunucuda saklamayız.
-        </p>
-
-        <h2>3. Antrenman verisi iPhone’da</h2>
-        <p>Boy, yaş grubu, reaksiyon süreleri, antrenman serisi ve maç notları SwiftData ile cihazda durur. Bu veriler sunucumuza gitmez. Günlük AI kredi sayacı ve ilk kurulum işareti cihazdaki UserDefaults alanındadır.</p>
-
-        <h2>4. AI koç istekleri</h2>
-        <p>
-          GKPro Elite koçunu kullanırsanız yazdığınız soru
-          <a href="https://gkpro-api.vercel.app/api/chat">https://gkpro-api.vercel.app/api/chat</a>
-          adresine gider. Bu servis, antrenman yanıtı üretmek için metni bir dil modeline iletir.
-          Model API anahtarı uygulamada yoktur. Kamera görüntüsü bu isteğe eklenmez.
-          Koça parola, sağlık kaydı veya başka hassas kişisel veri yazmayın.
-        </p>
-
-        <h2>5. Satın alma</h2>
-        <p>İsteğe bağlı GKPro Elite aboneliğini Apple işler. Kart numaranızı biz almayız. Apple bize yalnızca aboneliğin aktif olup olmadığını bildirir.</p>
-
-        <h2>6. Takip ve reklam</h2>
-        <p>GKPro reklam, IDFA veya uygulamalar arası takip kullanmaz. AI koç isteği bir reklam ağı değildir.</p>
-
-        <h2>7. Çocuklar</h2>
-        <p>Uygulamayı genç kaleciler kullanabilir. Ad veya iletişim bilgisi istemeyiz. Kamerayı, mikrofonu veya AI koçu bir çocuğun kullanıp kullanmayacağına ebeveyn karar vermelidir.</p>
-
-        <h2>8. İletişim</h2>
-        <p>Gizlilik soruları: <a href="mailto:burak782@icloud.com">burak782@icloud.com</a></p>
-      </section>
-    </div>
-  </div>
-</body>
-</html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="GKPro privacy policy: local records, AI sharing through Vercel and OpenAI, consent and deletion."><title>GKPro — Privacy Policy / Gizlilik Politikası</title><style>html{color-scheme:dark;scroll-behavior:smooth}*{box-sizing:border-box}body{margin:0;background:#0b0f14;color:#f4f7f5;font:16px/1.7 system-ui,-apple-system,sans-serif}main{max-width:840px;margin:auto;padding:32px 20px 64px}header{padding:24px 0}h1{font-size:clamp(28px,5vw,40px);line-height:1.2}h2,h3{line-height:1.4}h3{font-size:19px;color:#00ff87}section{margin:24px 0;padding:24px;background:#10161e;border:1px solid #293441;border-radius:18px}a{color:#00f0ff;overflow-wrap:anywhere}nav{display:flex;gap:12px;flex-wrap:wrap}nav a{padding:10px 18px;border:1px solid #00ff87;border-radius:24px;text-decoration:none}a:focus-visible{outline:3px solid #00f0ff;outline-offset:4px}.muted{color:#b1bec9}p{overflow-wrap:anywhere}@media(max-width:480px){section{padding:18px}main{padding:20px 14px}}</style></head>
+<body><main><header><p class="muted">GKPRO · PRIVACY</p><h1>Privacy Policy<br><span lang="tr">Gizlilik Politikası</span></h1><p class="muted">Updated / Güncellendi: 3 October / Ekim 2026</p><nav aria-label="Language / Dil"><a href="#english" lang="en">English</a><a href="#turkce" lang="tr">Türkçe</a></nav></header>
+<section id="english" lang="en"><h2>English</h2>
+<h3>1. Scope and app versions</h3><p>GKPro offers goalkeeper education, training tools and local records without an account. This policy describes data handling across app versions; features differ by installed version. The separate AI-sharing consent and withdrawal controls described below are part of the upcoming update. Earlier releases may not display those controls. On an earlier release, do not use AI Coach if you do not want your message sent to external services. A privacy-page update does not add consent controls to an already installed app.</p>
+<h3>2. Records stored on your device</h3><p>Profile details, matches, training history, workout plans, credit counters, game results, saved answers and preferences are stored on your device. GKPro does not automatically upload these records as a profile database. AI requests may include selected details as explained in section 4. Device backups depend on your Apple and device settings. Removing the app or clearing local records does not cancel an Apple subscription.</p>
+<h3>3. Camera, microphone and audio</h3><p>Today’s Workout and the current games do not use the camera or record microphone audio. Spoken cues and game sounds are audio playback, not microphone listening. The legacy camera pose feature, where available in an earlier version, processes camera frames locally using Apple Vision; GKPro does not record them or send them to the AI service. If a version offers speech recognition and you enable it, microphone and Apple speech-recognition permission are required; Apple may process speech depending on device and language. GKPro does not attach microphone recordings to AI Coach requests.</p>
+<h3>4. External AI: recipients, purpose and data</h3><p>When you submit a coach question or request an AI workout, the request travels over HTTPS through GKPro’s Vercel-hosted server to OpenAI’s API to generate a response. Your typed coach question, including personal details you choose to type, is sent. Please do not enter sensitive information. Workout requests in the upcoming update include language, duration, equipment and training setup, age group, experience, focus, goal, preferred foot, supervision and training-day preferences, recent training counts, difficulty feedback and an eligible-drill catalogue. If you select the last-match option, save and goal counts and goal types are included. Profile name, height, opponent name, free match notes, camera images and microphone recordings are not automatically attached. GKPro does not sell these requests for advertising.</p>
+<h3>5. Consent, withdrawal and young users</h3><p>In the upcoming update, external AI requires a separate explicit sharing agreement before a request is sent. Buying Elite does not grant sharing consent. You can decline and continue using free local content. Withdrawing consent in Settings stops future AI requests; it does not recall data already sent. External AI requests are blocked for the ages 8–12 profile in that update. Users aged 13–17 should discuss sharing with a parent or guardian. The age confirmation is self-declared and is not verified parental consent. These controls must not be assumed to exist in an earlier installed release.</p>
+<h3>6. Service processing, retention and deletion</h3><p>Vercel hosts the request endpoint and OpenAI processes AI requests. These internet services may process connection information such as IP addresses and operational logs, and processing may occur outside your country. OpenAI’s published API policy states that API data is not used to train its models by default; standard abuse-monitoring logs may be retained for up to 30 days, subject to its exceptions and any applicable account-specific controls. GKPro does not claim zero server retention or immediate automatic deletion. Hosting-log retention and available deletion controls depend on the configured service. For questions or access/deletion requests, contact burak782@icloud.com. Clearing data on your phone or withdrawing consent does not itself delete provider-side logs.</p>
+<h3>7. Purchases, reminders and external links</h3><p>Subscriptions and purchases are processed by Apple. GKPro uses StoreKit entitlement information to unlock features; it does not receive your full payment-card details. Reminders, where available, are scheduled locally after notification permission; they do not generate AI workouts in the background. Educational content can be read locally, but opening a source link connects to the source website under its own policy. GKPro does not use IDFA, advertising networks or cross-app tracking.</p>
+<h3>8. Contact and policy updates</h3><p>Developer: Burak. Privacy, access and deletion requests: burak782@icloud.com. Updates to this policy will be published at https://gkpro-api.vercel.app/privacy. App controls and feature availability remain dependent on the version installed on your device.</p>
+</section>
+<section id="turkce" lang="tr"><h2>Türkçe</h2>
+<h3>1. Kapsam ve uygulama sürümleri</h3><p>GKPro hesap açmadan kalecilik eğitimi, antrenman araçları ve yerel kayıtlar sunar. Bu politika farklı sürümlerdeki veri işleme akışlarını açıklar; özellikler yüklü sürüme göre değişir. Aşağıdaki ayrı AI paylaşım onayı ve geri çekme kontrolleri yeni güncellemenin parçasıdır. Önceki sürümlerde bu kontroller gösterilmeyebilir. Eski bir sürümde mesajının dış hizmetlere gönderilmesini istemiyorsan AI Koç’u kullanma. Gizlilik sayfasını güncellemek, kurulu eski uygulamaya onay kontrolü eklemez.</p>
+<h3>2. Cihazda saklanan kayıtlar</h3><p>Profil bilgileri, maçlar, antrenman geçmişi, planlar, kredi sayaçları, oyun sonuçları, kaydedilen sorular ve tercihler cihazında saklanır. GKPro bu kayıtları bir profil veritabanı olarak otomatik yüklemez. AI isteğine seçili bilgiler 4. bölümde açıklandığı şekilde eklenebilir. Cihaz yedeklemeleri Apple ve cihaz ayarlarına bağlıdır. Uygulamayı kaldırmak veya yerel kayıtları temizlemek Apple aboneliğini iptal etmez.</p>
+<h3>3. Kamera, mikrofon ve ses</h3><p>Bugünkü Antrenmanım ve mevcut oyunlar kamerayı kullanmaz, mikrofon kaydı yapmaz. Sesli komutlar ve oyun sesleri ses oynatımıdır; mikrofonla dinleme değildir. Önceki sürümde kullanılabilen eski kamera duruş özelliği kareleri Apple Vision ile cihazda işler; GKPro görüntüleri kaydetmez veya AI hizmetine göndermez. Bir sürüm konuşma tanıma sunuyorsa ve bunu açarsan mikrofon ve Apple konuşma tanıma izni gerekir; cihaz ve dile göre Apple sesi işleyebilir. GKPro mikrofon kayıtlarını AI Koç isteklerine eklemez.</p>
+<h3>4. Dış AI: alıcılar, amaç ve gönderilen veriler</h3><p>Koça soru gönderdiğinde veya AI antrenmanı istediğinde istek, cevap üretmek için HTTPS üzerinden Vercel’de barındırılan GKPro sunucusuna, ardından OpenAI API’ye iletilir. Yazdığın koç sorusu ve içine kendi seçiminle eklediğin kişisel bilgiler gönderilir; hassas bilgi yazma. Yeni güncellemedeki plan istekleri dil, süre, ekipman ve çalışma ortamı, yaş grubu, deneyim, odak, hedef, baskın ayak, gözetim ve çalışma günü tercihleri, yakın dönem antrenman sayıları, zorluk geri bildirimi ve uygun drill kataloğunu içerir. Son maçı kullanmayı seçersen kurtarış ve gol sayıları ile gol türleri eklenir. Profil adı, boy, rakip adı, serbest maç notları, kamera görüntüleri ve mikrofon kayıtları otomatik eklenmez. GKPro bu istekleri reklam amacıyla satmaz.</p>
+<h3>5. Onay, geri çekme ve genç kullanıcılar</h3><p>Yeni güncellemede dış AI isteği gönderilmeden önce ayrı ve açık paylaşım onayı gerekir. Elite satın almak paylaşım onayı vermez. Reddedip ücretsiz yerel içerikleri kullanabilirsin. Ayarlar’dan onayı geri çekmek sonraki AI isteklerini durdurur; daha önce gönderilmiş verileri geri çağırmaz. Bu güncellemede 8–12 yaş profilinde dış AI isteği engellenir. 13–17 yaş kullanıcılar paylaşımı ebeveyn veya vasileriyle değerlendirmelidir. Yaş onayı kullanıcının beyanıdır; doğrulanmış ebeveyn onayı değildir. Bu kontrollerin eski yüklü sürümlerde bulunduğu varsayılmamalıdır.</p>
+<h3>6. Hizmet sağlayıcılar, saklama ve silme</h3><p>İstek uç noktasını Vercel barındırır, AI isteklerini OpenAI işler. Bu internet hizmetleri IP adresi gibi bağlantı bilgileri ve işletim kayıtlarını işleyebilir; işleme ülken dışında gerçekleşebilir. OpenAI’nin yayınlanmış API politikasına göre API verileri varsayılan olarak model eğitimi için kullanılmaz; standart kötüye kullanım izleme kayıtları, istisnalar ve hesaba özel kontroller saklı kalmak üzere, 30 güne kadar tutulabilir. GKPro sunucuda sıfır saklama veya anında otomatik silme vaat etmez. Barındırma kayıtlarının saklanması ve kullanılabilen silme kontrolleri hizmet yapılandırmasına bağlıdır. Sorular, erişim ve silme talepleri için burak782@icloud.com adresine yazabilirsin. Telefonda verileri temizlemek veya onayı geri çekmek sağlayıcı kayıtlarını kendiliğinden silmez.</p>
+<h3>7. Ödemeler, hatırlatmalar ve dış bağlantılar</h3><p>Abonelik ve satın alımları Apple işler. GKPro özellikleri açmak için StoreKit abonelik hakkı bilgisini kullanır; tam ödeme kartı bilgilerini almaz. Hatırlatmalar, sunulan sürümlerde bildirim izninden sonra cihazda programlanır; arka planda AI antrenmanı üretmez. Eğitim içerikleri cihazda okunabilir; kaynak bağlantısını açmak ilgili siteye kendi politikası kapsamında bağlanır. GKPro IDFA, reklam ağı veya çapraz uygulama takibi kullanmaz.</p>
+<h3>8. İletişim ve politika güncellemeleri</h3><p>Geliştirici: Burak. Gizlilik, erişim ve silme talepleri: burak782@icloud.com. Politika güncellemeleri https://gkpro-api.vercel.app/privacy adresinde yayınlanır. Uygulama kontrolleri ve özelliklerin kullanılabilirliği cihazındaki sürüme bağlıdır.</p>
+</section>
+<footer><h2>Service policies / Hizmet politikaları</h2><ul><li><a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI API data controls</a></li><li><a href="https://vercel.com/legal/privacy-policy">Vercel privacy policy</a></li><li><a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a></li></ul><p><a href="mailto:burak782@icloud.com">burak782@icloud.com</a></p></footer></main></body></html>
