@@ -16,6 +16,8 @@ Use Node 22 or later and install the locked dependencies with `npm ci`. Set the 
 
 Never put these values in Swift, commit them or include them in logs. Missing configuration fails closed with HTTP 503.
 
+The Upstash Vercel integration with custom prefix `GKPRO_REDIS` creates `GKPRO_REDIS_KV_REST_API_URL` and `GKPRO_REDIS_KV_REST_API_TOKEN`. Both quota and App Attest accept this managed pair automatically. Keep the integration scoped to Preview during validation. Do not use its read-only token or TCP Redis URL. The original `GKPRO_REDIS_REST_URL`/`GKPRO_REDIS_REST_TOKEN` pair is still supported and takes precedence; remove incomplete overrides rather than mixing providers. The HMAC secret and Apple settings remain separate required variables.
+
 Merge `api`, `lib`, `certs` and the dependency/function settings into the existing Vercel project. Preserve its privacy page and other routes. Do not replace the whole existing website with this directory without inspecting that project.
 
 ## Verification before releasing the updated iOS client
