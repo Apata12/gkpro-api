@@ -88,3 +88,11 @@ test('Current Apple status rejects revoked/expired receipts and honors matching 
  assert.throws(()=>validateCurrentEntitlement(t,{...r,originalTransactionId:'other'},4,'id',now),/subscription_required/);
  assert.throws(()=>validateCurrentEntitlement(t,{...r,gracePeriodExpiresDate:now-1},4,'id',now),/subscription_required/);
 });
+
+test('Coach policy allows reported goalkeeper match facts without pretending to observe a match', () => {
+ const result=validateInput({task:'coach',question:'Review my last-match facts: {"saves":5,"goalsConceded":2}',signedTransaction:signed,languageCode:'tr'});
+ assert.match(result.messages[0].content,/may review goalkeeper performance from user-provided match facts/);
+ assert.match(result.messages[0].content,/If no facts are supplied, ask/);
+ assert.match(result.messages[0].content,/Do not claim to have observed/);
+ assert.match(result.messages[0].content,/Never give diagnosis/);
+});
