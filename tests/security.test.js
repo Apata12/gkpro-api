@@ -35,6 +35,7 @@ test('Injected model, system prompt and token budget cannot override server poli
  assert.equal(res.statusCode,200);const p=f.counts().lastPayload;
  assert.equal(p.model,MODEL);assert.equal(p.max_tokens,250);assert.match(p.messages[0].content,/Never give diagnosis/);
  assert.equal(p.messages.length,2);assert.equal(p.messages[1].content,'Footwork');
+ assert.equal(p.store,false);assert.match(p.messages[0].content,/Readers may be aged 13–17/);
 });
 test('Concurrent requests allow only 25 dispatches per verified account',async()=>{
  const f=fixture();const responses=await Promise.all(Array.from({length:80},async()=>{const res=response();await f.handler(request(),res);return res}));
@@ -107,6 +108,14 @@ test('General lessons reconstruct a fixed public question without child profile 
  assert.equal(p.max_tokens,350);
  assert.ok(!JSON.stringify(p).includes(signed));
 });
+test('Coach policy allows reported goalkeeper match facts without pretending to observe a match', () => {
+ const result=validateInput({task:'coach',question:'Review my last-match facts: {"saves":5,"goalsConceded":2}',signedTransaction:signed,languageCode:'tr'});
+ assert.match(result.messages[0].content,/may review goalkeeper performance from user-provided match facts/);
+ assert.match(result.messages[0].content,/If no facts are supplied, ask/);
+ assert.match(result.messages[0].content,/Do not claim to have observed/);
+ assert.match(result.messages[0].content,/Never give diagnosis/);
+});
+
 test('General lessons reject arbitrary topics or personal fields before upstream dispatch',async()=>{
  for (const extra of [{topic:'unknown'},{topic:'scan',question:'My private name'},{topic:'ready',context:{age:9}},{topic:'wall',profile:'private'}]) {
   const f=fixture(),res=response();
