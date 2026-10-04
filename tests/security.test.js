@@ -96,3 +96,29 @@ test('Coach policy allows reported goalkeeper match facts without pretending to 
  assert.match(result.messages[0].content,/Do not claim to have observed/);
  assert.match(result.messages[0].content,/Never give diagnosis/);
 });
+
+test('General lessons reconstruct a fixed public question without child profile data',async()=>{
+ const f=fixture(),res=response();
+ await f.handler(request({task:'learning',topic:'corner',languageCode:'tr',signedTransaction:signed}),res);
+ assert.equal(res.statusCode,200);
+ const p=f.counts().lastPayload;
+ assert.equal(p.messages[1].content,'Explain how flight, access and clear communication affect a corner decision.');
+ assert.match(p.messages[0].content,/Do not ask for personal details/);
+ assert.equal(p.max_tokens,350);
+ assert.ok(!JSON.stringify(p).includes(signed));
+});
+test('General lessons reject arbitrary topics or personal fields before upstream dispatch',async()=>{
+ for (const extra of [{topic:'unknown'},{topic:'scan',question:'My private name'},{topic:'ready',context:{age:9}},{topic:'wall',profile:'private'}]) {
+  const f=fixture(),res=response();
+  await f.handler(request({task:'learning',languageCode:'en',signedTransaction:signed,...extra}),res);
+  assert.equal(res.statusCode,400);
+  assert.equal(f.counts().upstreamCalls,0);
+ }
+});
+test('Weekly core planning bounds the week and retains the controlled progression objective',()=>{
+ const context={minutes:15,ageGroup:'junior',eligibleDrills:[{id:'d8',title:'Readiness',maxMinutes:25}],programWeek:3,weekObjective:'Decision and communication'};
+ const result=validateInput({task:'workout',signedTransaction:signed,context});
+ assert.equal(JSON.parse(result.messages[1].content).programWeek,3);
+ assert.match(result.messages[0].content,/Keep duration fixed/);
+ for (const programWeek of [0,5,1.5,'2']) assert.throws(()=>validateInput({task:'workout',signedTransaction:signed,context:{...context,programWeek}}));
+});
