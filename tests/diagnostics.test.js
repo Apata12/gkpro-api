@@ -25,3 +25,15 @@ test('Apple signing and transport errors are classified without logging messages
     assert.equal(line.includes(message),false);
   }
 });
+
+
+test('Transaction diagnostics expose only the fixed verification status code', () => {
+  for (const stage of ['transaction_production','transaction_sandbox']) {
+    let line;
+    diagnosticFailure(stage,{status:6,cause:new Error('private-receipt'),message:'private-token'},value=>line=value);
+    assert.deepEqual(JSON.parse(line),{event:'gkpro_verification_failure',stage,verificationStatus:6});
+    assert.equal(line.includes('private'),false);
+    diagnosticFailure(stage,{status:'private-status'},value=>line=value);
+    assert.equal(JSON.parse(line).verificationStatus,undefined);
+  }
+});
